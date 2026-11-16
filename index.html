@@ -337,6 +337,162 @@ blockquote{margin:0;font-size:19px;line-height:1.4;font-weight:500}
 .contact a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4)}
 .disc{position:absolute;left:84px;right:84px;bottom:22px;font-size:10.5px;line-height:1.4;color:rgba(255,255,255,.45)}
 
+/* ================= phone layout (class set on <html> by script) =================
+   Each slide becomes a full-height, single-column panel that scrolls vertically.
+   Swipe sideways or use the bottom bar to move between slides. */
+.m-tabs,.ticker,.mtitle,.sheet,.m-only{display:none}
+@keyframes travelY{from{top:-40%}to{top:100%}}
+.m body{font-size:16px;-webkit-tap-highlight-color:transparent}
+.m button,.m a{touch-action:manipulation}
+.m .d-only{display:none}.m .m-only{display:inline}
+.m #stage{position:fixed;inset:0;width:auto;height:auto;transform:none!important}
+.m .slide{inset:0 0 58px 0;display:block;padding:22px 18px 28px;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+.m h1{font-size:40px}
+.m h2{font-size:27px}
+.m .lede{font-size:16px}
+.m .eyebrow{font-size:12px;margin-bottom:10px}
+.m .head{margin-bottom:16px;gap:8px}
+.m .btn{justify-content:center;min-height:46px}
+.m .btn.sm{padding:10px 14px;font-size:14.5px;min-height:42px}
+/* bar */
+.m .nav{height:58px;padding:0 10px 0 14px;gap:8px}
+.m .nav .brand div,.m .dots,.m .count,.m #fs{display:none}
+.m .mtitle{display:flex;align-items:center;gap:8px;flex:1;min-width:0;height:44px;border:0;background:none;color:#fff;font-size:14.5px;font-weight:600;text-align:left;padding:0 6px}
+.m .mtitle b{color:var(--accent-light);font-variant-numeric:tabular-nums;flex:none}
+.m .mtitle span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.m .mtitle svg{flex:none;opacity:.6;transform:rotate(-90deg)}
+.m .nav .nb{width:50px;height:42px}
+.m .sheet{position:absolute;left:0;right:0;bottom:58px;z-index:6;background:var(--deep);border-top:1px solid rgba(255,255,255,.18);max-height:72%;overflow-y:auto;padding:8px}
+.m .sheet:not(.open){display:none}
+.m .sheet.open{display:grid;gap:2px}
+.sheet button{display:flex;gap:12px;align-items:center;border:0;background:none;color:#fff;text-align:left;padding:12px 10px;border-radius:8px;font-size:15.5px}
+.sheet button b{width:22px;color:rgba(255,255,255,.5);font-variant-numeric:tabular-nums}
+.sheet button.on{background:var(--charcoal)}
+.sheet button.on b{color:var(--accent-light)}
+/* 1 */
+.m #s-intro,.m #s-contact{padding-left:18px}
+.m #s-intro .logo{position:static;font-size:22px;margin-bottom:34px}
+.m #s-intro .logo svg{width:34px;height:24px}
+.m #s-intro h1{margin-bottom:16px}
+.m #s-intro .lede{margin-bottom:22px}
+.m .intro-art{position:static;width:auto;margin-top:30px;gap:12px}
+.m .dept-mini{padding:16px 18px}
+.m .hint{position:static;margin-top:24px}
+/* 2 */
+.m .split{display:block}
+.m .pains{gap:18px 16px;margin-bottom:22px}
+.m .pains .big{font-size:32px}
+.m .pains p{font-size:14.5px}
+.m .inbox{padding:14px}
+.m .msg-row span{display:none}
+.m .inbox .small{margin-top:4px!important}
+/* 3 */
+.m .toggle{display:flex}
+.m .toggle button{flex:1;padding:12px 6px;font-size:15px}
+.m .tl{grid-template-columns:1fr;gap:18px;margin-top:24px}
+.m .tl::before{left:8px;right:auto;top:4px;bottom:4px;width:2px;height:auto}
+.m .tl-step{padding:0 0 0 34px}
+.m .tl-step::before{top:3px}
+.m .tl-step time{font-size:18px}
+.m .tl-step b{font-size:16.5px;margin:3px 0}
+.m .tl-step p{font-size:14.5px}
+.m .verdict{margin-top:22px;flex-direction:column;align-items:flex-start;gap:6px;font-size:16px}
+.m .verdict .small{margin-left:0}
+/* 4 */
+.m .depts{grid-template-columns:1fr;gap:16px}
+.m .dept{padding:18px}
+.m .dept .n{font-size:44px;right:16px}
+.m .dept .top b{font-size:21px}
+.m .dept .cols{grid-template-columns:1fr;gap:16px}
+.m .dept ul.ticks li{font-size:15.5px}
+/* 5 */
+.m #s-demo{display:flex;overflow:hidden;padding:18px 14px 12px}
+.m #s-demo .head{display:block;margin-bottom:10px}
+.m #s-demo h2{font-size:22px}
+.m #s-demo .head>.small{max-width:none!important;text-align:left!important;font-size:11.5px;margin-top:4px}
+.m .m-tabs{display:flex;border:1.5px solid var(--ink);border-radius:8px;overflow:hidden;margin-bottom:10px;flex:none}
+.m-tabs button{flex:1;border:0;background:#fff;padding:10px 6px;font-weight:600;font-size:15px;display:flex;gap:8px;align-items:center;justify-content:center}
+.m-tabs button[aria-selected="true"]{background:var(--ink);color:#fff}
+.m-tabs i{font-style:normal;background:var(--accent);color:#fff;border-radius:999px;min-width:20px;height:20px;font-size:12px;display:grid;place-items:center;padding:0 5px;animation:pop .3s both}
+.m-tabs i:empty{display:none}
+.m .demo{display:block;flex:1;min-height:0}
+.m .demo[data-view="chat"] .crm,.m .demo[data-view="crm"] .widget{display:none}
+.m .demo[data-view="crm"]{overflow-y:auto}
+.m .widget{height:100%}
+.m .bub{font-size:15px}
+.m .chip{font-size:15px;padding:12px}
+.m .w-ctrl .small{display:none}
+.m .w-ctrl>span:last-child{flex:1}
+.m .w-ctrl .btn{flex:1}
+.m .ticker:not([hidden]){display:flex;align-items:center;gap:9px;border:0;background:var(--charcoal);color:#fff;font-size:13px;padding:9px 12px;text-align:left;width:100%}
+.ticker::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent-light);flex:none;animation:pulse 2s infinite}
+.ticker span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ticker b{color:var(--accent-light);white-space:nowrap}
+.m .crm{display:block}
+.m .crm-top{margin-bottom:12px;padding:12px}
+.m .crm-title .small{display:none}
+.m .pipe{grid-template-columns:1fr 1fr}
+.m .col{min-height:0}
+.m .lead{font-size:13.5px}
+.m .crm-bottom{grid-template-columns:1fr;gap:12px}
+.m .rec dl{font-size:14.5px}
+.m .act ol{font-size:14px}
+/* 6 */
+.m .clock{display:block}
+.m .row .lab{font-size:13px}
+.m input[type=range]{height:42px}
+.m .channels{margin-top:10px;gap:6px}
+.m .channels span{font-size:13px;padding:5px 10px}
+.m .now{margin-top:18px;padding:16px}
+.m .now .t{font-size:44px}
+/* 7 */
+.m .tabs{overflow-x:auto;margin:0 -18px 14px;padding:0 18px 4px;scrollbar-width:none}
+.m .tabs button{flex:none;padding:11px 16px}
+.m .tabs>span{display:none}
+.m .flow3{display:block}
+.m .arrow{height:34px}
+.m .arrow svg{transform:rotate(90deg)}
+.m .stepc{padding:16px}
+.m .stepc .acts{margin-top:6px}
+.m .stepc .acts .btn{flex:1}
+.m .wait{margin:0}
+.m .audit{margin-top:6px}
+.m .audit ol{font-size:13.5px}
+/* 8 */
+.m .plat{display:block}
+.m .chs{display:flex;flex-wrap:wrap}
+.m .chs span{font-size:13.5px;padding:5px 10px}
+.m .wires{display:flex;justify-content:center;gap:44px;padding:8px 0}
+.m .wire{width:2px;height:28px}
+.m .wire::after{left:0;width:2px;height:10px;animation-name:travelY}
+.m .core{padding:12px}
+.m .core .two{grid-template-columns:1fr;gap:8px}
+.m .core .d{padding:11px}
+.m .core .ctl{font-size:12.5px}
+.m .three{grid-template-columns:1fr;gap:18px;margin-top:6px}
+/* 9 */
+.m .stats{grid-template-columns:1fr 1fr;gap:18px 16px}
+.m .stats .v{font-size:36px}
+.m .stats p{font-size:14.5px}
+.m .proof{display:block;margin-top:18px}
+.m .proof .c{padding:16px;margin-bottom:14px}
+.m .mini{margin-top:8px;gap:10px}
+.m .mini b{font-size:22px}
+.m blockquote{font-size:17px}
+.m .proof cite{margin-top:6px}
+/* 10 */
+.m .go{display:block}
+.m .steps{gap:14px;margin-bottom:26px}
+.m .plans{grid-template-columns:1fr;gap:20px}
+.m .plan .p{font-size:34px}
+.m .plan ul.ticks li{font-size:14.5px}
+/* 11 */
+.m #s-contact h1{font-size:36px;margin-bottom:16px}
+.m .cta{flex-direction:column;margin:22px 0 26px}
+.m .contact{display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:15.5px}
+.m .contact>div:first-child,.m .contact>div:nth-child(3){grid-column:1/-1}
+.m .disc{position:static;margin-top:26px}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
@@ -370,7 +526,7 @@ blockquote{margin:0;font-size:19px;line-height:1.4;font-weight:500}
     <div class="dept-mini" data-a><span class="n">02</span><span class="badge"><svg class="i"><use href="#key"/></svg></span><div><b>AI Owner Services</b><small>Your owner office</small></div></div>
     <div class="live" data-a><i></i>Answering guests and owners around the clock</div>
   </div>
-  <p class="hint">Use <kbd>←</kbd> <kbd>→</kbd> or the buttons below. Several slides are interactive.</p>
+  <p class="hint"><span class="d-only">Use <kbd>←</kbd> <kbd>→</kbd> or the buttons below. Several slides are interactive.</span><span class="m-only">Swipe sideways or use the arrows below. Several slides are interactive.</span></p>
 </section>
 
 <!-- 2 -->
@@ -443,10 +599,12 @@ blockquote{margin:0;font-size:19px;line-height:1.4;font-weight:500}
     <div><p class="eyebrow" data-a>Try it</p><h2 data-a>From a chat on your website to a lead in your CRM.</h2></div>
     <p class="small" data-a style="max-width:300px;text-align:right">Illustrative conversation. Havenwood Lodge Park is a fictional demo park.</p>
   </div>
-  <div class="demo">
+  <div class="m-tabs" role="tablist" aria-label="Demo view"><button role="tab" id="mt-chat" aria-selected="true">Chat widget</button><button role="tab" id="mt-crm" aria-selected="false">CRM <i id="mt-badge"></i></button></div>
+  <div class="demo" id="demo" data-view="chat">
     <div class="card widget" data-a>
       <div class="w-head"><div class="w-av">R</div><div><b>Rowan</b><small>Havenwood Lodge Park</small></div><span class="w-dept" id="w-dept">Guest Services</span></div>
       <div class="w-body" id="w-body"></div>
+      <button class="ticker" id="ticker" hidden><span></span><b>View CRM ›</b></button>
       <div class="w-foot">
         <button class="chip" id="chip"></button>
         <div class="w-ctrl"><span class="small">Click the message to send it.</span>
@@ -610,9 +768,11 @@ blockquote{margin:0;font-size:19px;line-height:1.4;font-weight:500}
   <p class="disc">ParkPilot AI is an independent software provider. References to third-party systems indicate technical compatibility through standard API connections and do not imply partnership, endorsement, certification, joint venture or official authorisation by named providers. Integration capabilities depend on system configuration, API availability and customer access permissions. All trademarks are the property of their respective owners.</p>
 </section>
 
+<div class="sheet" id="sheet"></div>
 <nav class="nav" aria-label="Slides">
   <div id="bar"></div>
   <div class="brand"><svg><use href="#logo"/></svg><div>ParkPilot <span>AI</span></div></div>
+  <button class="mtitle" id="mtitle" aria-expanded="false" aria-controls="sheet"><b></b><span></span><svg class="i"><use href="#back"/></svg></button>
   <div class="dots" id="dots"></div>
   <span class="count num" id="count"></span>
   <button class="nb" id="prev" aria-label="Previous slide"><svg class="i"><use href="#back"/></svg></button>
@@ -629,19 +789,27 @@ const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
 let S=1, cur=0;
 
 /* ---------- stage scaling ---------- */
-function fit(){S=Math.min(innerWidth/1280,innerHeight/720);stage.style.transform=`translate(-50%,-50%) scale(${S})`}
+const root=document.documentElement,M=()=>root.classList.contains('m');
+function fit(){const w=root.clientWidth,h=root.clientHeight,m=w<760||Math.min(w,h)<600;root.classList.toggle('m',m);
+  if(m){S=1;stage.style.transform=''}else{S=Math.min(w/1280,h/720);stage.style.transform=`translate(-50%,-50%) scale(${S})`}}
 addEventListener('resize',fit);fit();
 
 /* ---------- navigation ---------- */
 slides.forEach(s=>$$('[data-a]',s).forEach((e,i)=>e.style.setProperty('--i',i)));
 const dots=$('#dots');
 slides.forEach((s,i)=>{const b=document.createElement('button');b.title=s.getAttribute('aria-label');b.setAttribute('aria-label','Go to: '+b.title);b.onclick=()=>go(i);dots.append(b)});
-const hooks={};
+const hooks={},sheet=$('#sheet'),mtitle=$('#mtitle');
+slides.forEach((s,i)=>{const b=document.createElement('button');b.innerHTML=`<b>${i+1}</b>${s.getAttribute('aria-label')}`;b.onclick=()=>go(i);sheet.append(b)});
+function setSheet(o){sheet.classList.toggle('open',o);mtitle.setAttribute('aria-expanded',o)}
+mtitle.onclick=()=>setSheet(!sheet.classList.contains('open'));
+stage.addEventListener('click',e=>{if(!e.target.closest('#sheet,#mtitle'))setSheet(false)});
 function go(n,fromHash){
   n=Math.max(0,Math.min(slides.length-1,n));
   slides.forEach((s,i)=>s.classList.toggle('active',i===n));
   $$('button',dots).forEach((b,i)=>b.classList.toggle('on',i===n));
   $('#count').textContent=(n+1)+' / '+slides.length;
+  $$('button',sheet).forEach((b,i)=>b.classList.toggle('on',i===n));setSheet(false);slides[n].scrollTop=0;
+  $('b',mtitle).textContent=(n+1)+'/'+slides.length;$('span',mtitle).textContent=slides[n].getAttribute('aria-label');
   $('#bar').style.width=((n+1)/slides.length*100)+'%';
   $('#prev').disabled=n===0;$('#next').disabled=n===slides.length-1;
   cur=n;const name=slides[n].dataset.name;
@@ -660,9 +828,9 @@ addEventListener('keydown',e=>{
   else if(['ArrowLeft','PageUp'].includes(e.key)){go(cur-1);e.preventDefault()}
   else if(e.key==='Home')go(0);else if(e.key==='End')go(slides.length-1);
 });
-let tx=null;
-addEventListener('touchstart',e=>{tx=e.target.closest('input,.w-body')?null:e.touches[0].clientX},{passive:true});
-addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)go(cur+(d<0?1:-1));tx=null},{passive:true});
+let tx=null,ty=0;
+addEventListener('touchstart',e=>{tx=e.target.closest('input,.w-body,.tabs,.sheet')?null:e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(d)>60&&Math.abs(d)>1.6*Math.abs(dy))go(cur+(d<0?1:-1));tx=null},{passive:true});
 function countUp(el){
   const to=+el.dataset.count;if(reduced){el.textContent=to;return}
   const t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/1100);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0);
@@ -703,7 +871,11 @@ const scroll=()=>{body.scrollTop=body.scrollHeight};
 function bub(cls,html){const d=document.createElement('div');d.className=cls;d.innerHTML=html;body.append(d);scroll();return d}
 const sys=(t,hand)=>bub('sys'+(hand?' hand':''),`<svg class="i"><use href="#check"/></svg>${t}`);
 function field(k,v){const dd=$(`#rec [data-f="${k}"]`);dd.textContent=v;dd.classList.remove('empty','hit');void dd.offsetWidth;dd.classList.add('hit')}
-function log(t,txt){$$('.idle',act).forEach(e=>e.remove());const li=document.createElement('li');li.innerHTML=`<time class="num">${t}</time><span>${txt}</span>`;act.append(li)}
+const demoEl=$('#demo'),ticker=$('#ticker'),badge=$('#mt-badge');let unseen=0;
+function setView(v){demoEl.dataset.view=v;$('#mt-chat').setAttribute('aria-selected',v==='chat');$('#mt-crm').setAttribute('aria-selected',v==='crm');if(v==='crm'){unseen=0;badge.textContent=''}else scroll()}
+$('#mt-chat').onclick=()=>setView('chat');$('#mt-crm').onclick=ticker.onclick=()=>setView('crm');
+function log(t,txt){$$('.idle',act).forEach(e=>e.remove());const li=document.createElement('li');li.innerHTML=`<time class="num">${t}</time><span>${txt}</span>`;act.append(li);
+  ticker.hidden=false;$('span',ticker).textContent='CRM: '+txt;if(demoEl.dataset.view!=='crm'){unseen++;badge.textContent=unseen}scroll()}
 function counts(){$$('.col').forEach(c=>$('[data-n]',c).textContent=$$('.lead',c).length)}
 function moveLead(to){
   const a=leadEl.getBoundingClientRect();$(to).append(leadEl);const b=leadEl.getBoundingClientRect();counts();
@@ -754,6 +926,7 @@ function aiTurn(){
 }
 function resetDemo(){
   run++;timers.forEach(clearTimeout);timers=[];step=0;busy=false;auto=false;leadEl=null;$('#auto').textContent='Play it for me';
+  ticker.hidden=true;unseen=0;badge.textContent='';setView('chat');
   body.innerHTML='';deptEl.textContent='Guest Services';deptEl.classList.remove('owner');
   $('#c-enq').innerHTML=ORIG.enq;$('#c-app').innerHTML=ORIG.app;counts();
   $$('#rec dd').forEach((d,i)=>{d.className='empty';d.textContent=i?'·':'Waiting for enquiry'});
@@ -825,6 +998,7 @@ function setCase(n){
     $('#out').innerHTML=`<small class="small">Reply sent on the same channel</small><div class="reply" style="margin-top:6px">${a[1]}</div>`;
     const tt=t.replace(/(\d\d)$/,m=>String(+m+4).padStart(2,'0'));
     $('#audit').insertAdjacentHTML('beforeend',`<li><b>${tt}</b>${a[2]}</li><li><b>${tt}</b>Customer notified by AI</li>`);
+    if(M())$('#out').scrollIntoView({behavior:reduced?'auto':'smooth',block:'center'});
   });
 }
 CASES.forEach((c,i)=>{const b=document.createElement('button');b.role='tab';b.textContent=c.tab;b.onclick=()=>setCase(i);tabs.append(b)});

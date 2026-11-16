@@ -24,6 +24,10 @@ It is a single self-contained file, `index.html`, with no build step. Open it in
 - Each slide has its own link, for example `index.html#demo`.
 - The full-screen button is in the bottom-right corner.
 
+## Phone layout
+
+On a phone (or any window narrower than 760px) the deck switches to a single-column layout automatically. Each slide scrolls vertically; swipe sideways or use the arrows in the bottom bar to change slide, and tap the slide title to jump to any slide. On the demo slide the chat widget and the CRM are separate tabs, with a live ticker under the chat showing what has just been added to the CRM. The phone rules are the `.m` block near the end of the stylesheet.
+
 ## Editing
 
 Brand colours and fonts are tokens in the `:root` block at the top of the stylesheet. The demo conversation (`SCRIPT`), the 9pm Tuesday timelines (`TL`), the time-of-day examples (`EX`) and the handover scenarios (`CASES`) are plain data near the bottom of the file.
